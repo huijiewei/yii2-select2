@@ -52,7 +52,13 @@ class Select2Widget extends InputWidget
     {
         $this->_assetBundle = Select2Asset::register($this->getView());
 
-        Select2BootstrapAsset::register($this->getView());
+        if ($this->clientOptions['theme'] == 'bootstrap') {
+            Select2BootstrapAsset::register($this->getView());
+        }
+
+        if ($this->clientOptions['theme'] == 'bootstrap4') {
+            Select2Bootstrap4Asset::register($this->getView());
+        }
     }
 
     public function registerLanguage()
